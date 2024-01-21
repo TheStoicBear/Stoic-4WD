@@ -11,20 +11,17 @@ end
 
 function Toggle2WDMode()
     local playerPed = PlayerPedId()
-    local playerCar = GetVehiclePedIsIn(playerPed, false)
-    local veh = GetVehiclePedIsIn(playerPed)
+    local veh = GetVehiclePedIsIn(playerPed, false)
 
     if IsSUVOrVanOrOffroad(veh) then
         if IsPedSittingInAnyVehicle(playerPed) then
-            if (GetPedInVehicleSeat(playerCar, -1) == playerPed) then
-                fourwheelsc = not fourwheelsc
-                if fourwheelsc then
-                    ApplyEffects(veh, Config.default2WDEffects)
-                    TriggerEvent("chatMessage", Config.messages.info2WDOn)
-                else
-                    ApplyEffects(veh, Config.default4x4Effects)
-                    TriggerEvent("chatMessage", Config.messages.info2WDOff)
-                end
+            fourwheelsc = not fourwheelsc
+            if fourwheelsc then
+                ApplyEffects(veh, Config.defaultAWDEffects) -- All four wheels have power (AWD/4X4)
+                TriggerEvent("chatMessage", Config.messages.info2WDOn)
+            else
+                ApplyEffects(veh, Config.default2WDEffects) -- Rear-wheel 2WD when off
+                TriggerEvent("chatMessage", Config.messages.info2WDOff)
             end
         end
     else
@@ -44,13 +41,11 @@ Citizen.CreateThread(function()
         Citizen.Wait(Config.updateInterval)
         local playerPed = PlayerPedId()
         local veh = GetVehiclePedIsIn(playerPed, false)
-        if IsSUVOrVanOrOffroad(veh) then
-            if IsPedSittingInAnyVehicle(playerPed) then
-                if fourwheelsc then
-                    ApplyEffects(veh, Config.default2WDEffects)
-                else
-                    ApplyEffects(veh, Config.default4x4Effects)
-                end
+        if IsSUVOrVanOrOffroad(veh) and IsPedSittingInAnyVehicle(playerPed) then
+            if fourwheelsc then
+                ApplyEffects(veh, Config.defaultAWDEffects)
+            else
+                ApplyEffects(veh, Config.default2WDEffects)
             end
         end
     end
