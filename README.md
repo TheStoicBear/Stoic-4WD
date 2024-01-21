@@ -1,5 +1,6 @@
 # Bears 4WD System
-![bears-4wd](https://github.com/YourGitHubUsername/your-repo-name/path/to/your/image.png)
+![20240118_235630_0000](https://github.com/TheStoicBear/Stoic-4WD/assets/112611821/c96fb936-bd48-4818-bec1-fede7f6fc83e)
+
 
 The Bears 4WD System is a script for Grand Theft Auto V (GTA V) that enables players to switch between 4WD mode and 2WD (rear-wheel drive) mode in compatible vehicles. This system enhances the off-road and all-terrain capabilities of SUVs, vans, and off-road vehicles by adjusting vehicle handling parameters.
 
