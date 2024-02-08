@@ -1,3 +1,4 @@
+-- Configuration
 Config = {}
 
 -- Vehicle class identifiers
@@ -28,4 +29,11 @@ Config.messages = {
     errorVehicleType = "^1[Error]^7 This vehicle is not an SUV, van, or off-road vehicle",
     info2WDOn = Config.chatMessagePrefix .. " 4WD mode is ^2ON^7",
     info2WDOff = Config.chatMessagePrefix .. " 4WD mode is ^1OFF^7"
+}
+
+-- Damage configuration
+Config.damageSpeed = 35 -- Speed threshold for vehicle damage
+Config.whiteList = { -- Initialize whitelist
+    "f250r",
+    -- Add more vehicle models here as needed
 }
