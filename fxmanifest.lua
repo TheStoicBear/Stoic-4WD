@@ -6,4 +6,4 @@ description '5M-CodeX ND_Blips'
 games { 'gta5' }
 
 client_script "source/client.lua"
-shared_script "config.lua"
+shared_script "Config.lua"
